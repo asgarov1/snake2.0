@@ -30,15 +30,15 @@ public class MainFrame {
         frame.setLocationRelativeTo(null);
 
         Panel panelControl = new Panel();
+        panelControl.setBorderLayout(panelControl.getTopPanel());
         frame.add(panelControl.getTopPanel());
 
-        createField();
-        frame.update(frame.getGraphics());
+        Field field = new Field(width, height);
+        frame.add(field.getCanvas());
+        field.getCanvas().update(field.getCanvas().getGraphics());
     }
 
     private static void createField() {
-        Field canvas = new Field(width, height);
-        canvas.paint(frame.getGraphics());
-        frame.add(canvas);
+
     }
 }
