@@ -4,18 +4,41 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame {
-    public static JFrame frame = new JFrame("My Snake");
+    private static JFrame frame;
+    private static int width, height;
 
-
-    public MainFrame () {
+    public MainFrame() {
+        width=600;
+        height=466;
         createView();
     }
 
+    public MainFrame(int x, int y) {
+        width=x;
+        height=y;
+        createView();
+    }
+
+
+
     private static void createView() {
+        frame = new JFrame("My Snake");
         frame.setLayout(new BorderLayout());
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(600, 466);
+        frame.setSize(width, height);
         frame.setLocationRelativeTo(null);
+
+        Panel panelControl = new Panel();
+        createField();
+    }
+
+    private static void createPanels() {
+
+    }
+
+    private static void createField() {
+        Field canvas = new Field(width, height);
+        canvas.paint(frame.getGraphics());
     }
 }
