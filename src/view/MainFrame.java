@@ -1,10 +1,11 @@
 package view;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class MainFrame {
-    private static JFrame frame;
+    public static JFrame frame;
     private static int width, height;
 
     public MainFrame() {
@@ -21,7 +22,7 @@ public class MainFrame {
 
 
 
-    private static void createView() {
+    private void createView() {
         frame = new JFrame("My Snake");
         frame.setLayout(new BorderLayout());
         frame.setVisible(true);
@@ -29,16 +30,21 @@ public class MainFrame {
         frame.setSize(width, height);
         frame.setLocationRelativeTo(null);
 
-        Panel panelControl = new Panel();
-        panelControl.setBorderLayout(panelControl.getTopPanel());
-        frame.add(panelControl.getTopPanel());
+        Spanel panelControl = new Spanel();
 
-        Field field = new Field(width, height);
-        frame.add(field.getCanvas());
-        field.getCanvas().update(field.getCanvas().getGraphics());
+        panelControl.getTopPanel().add(panelControl.getLivesPanel(), BorderLayout.EAST);
+        panelControl.getTopPanel().add(Label.getScoreLabel(), BorderLayout.WEST);
+        frame.add(panelControl.getTopPanel(), BorderLayout.NORTH);
+        updateFrame();
     }
 
     private static void createField() {
 
     }
+
+    public void updateFrame() {
+        MainFrame.frame.invalidate();
+        MainFrame.frame.validate();
+    }
+
 }
