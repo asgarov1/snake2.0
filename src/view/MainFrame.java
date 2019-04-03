@@ -1,7 +1,8 @@
 package view;
 
+import controller.Field;
+
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class MainFrame {
@@ -12,6 +13,9 @@ public class MainFrame {
         width=600;
         height=466;
         createView();
+        createField();
+
+        updateFrame();
     }
 
     public MainFrame(int x, int y) {
@@ -35,11 +39,12 @@ public class MainFrame {
         panelControl.getTopPanel().add(panelControl.getLivesPanel(), BorderLayout.EAST);
         panelControl.getTopPanel().add(Label.getScoreLabel(), BorderLayout.WEST);
         frame.add(panelControl.getTopPanel(), BorderLayout.NORTH);
-        updateFrame();
     }
 
     private static void createField() {
-
+        Field field = new Field(width, height);
+        frame.add(field.getCanvas());
+        field.getCanvas().update(field.getCanvas().getGraphics());
     }
 
     public void updateFrame() {
