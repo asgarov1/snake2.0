@@ -6,6 +6,7 @@ public class Bonus {
     private int x;
     private int y;
     private boolean isEaten;
+    private static Bonus b = new Bonus(600, 466);
 
     public Bonus(int width, int height){
         generateRandomPos(width, height);
@@ -34,4 +35,11 @@ public class Bonus {
         isEaten = true;
     }
 
+    public static Bonus getB() {
+        return b;
+    }
+
+    public static void setB(Bonus b) {
+        Bonus.b = b;
+    }
 }

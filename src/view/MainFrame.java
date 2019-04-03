@@ -13,8 +13,11 @@ public class MainFrame {
     public MainFrame() {
         width=600;
         height=466;
+
         createView();
         createField();
+
+
 
         updateFrame();
     }
@@ -47,7 +50,7 @@ public class MainFrame {
         frame.add(field.getCanvas());
         field.getCanvas().update(field.getCanvas().getGraphics());
 
-
+        field.drawCanvas();
     }
 
     public void updateFrame() {
