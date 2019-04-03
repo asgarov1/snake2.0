@@ -1,6 +1,7 @@
 package view;
 
 import controller.Field;
+import model.Bonus;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,6 +46,8 @@ public class MainFrame {
         Field field = new Field(width, height);
         frame.add(field.getCanvas());
         field.getCanvas().update(field.getCanvas().getGraphics());
+
+
     }
 
     public void updateFrame() {
