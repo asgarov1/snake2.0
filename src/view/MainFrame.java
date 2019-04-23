@@ -16,8 +16,6 @@ public class MainFrame {
         createView();
         createField();
 
-
-
         updateFrame();
     }
 

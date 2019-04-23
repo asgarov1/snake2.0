@@ -42,6 +42,5 @@ public class MoverTimer extends TimerTask {
             default:
         }
         //Field.ifLost();
-        //newBonus();
     }
 }

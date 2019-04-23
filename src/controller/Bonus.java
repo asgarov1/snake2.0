@@ -2,10 +2,7 @@ package controller;
 
 import view.Label;
 import view.MainFrame;
-
 import java.util.Random;
-
-import static controller.Field.canvas;
 import static controller.Field.snake;
 
 public class Bonus {
@@ -20,12 +17,10 @@ public class Bonus {
     }
 
     public void generateRandomPos(int width, int height){
-        System.out.println(width + " " + height);
         this.x = new Random().nextInt(((width-40)/15));
         this.x *= 15;
         this.y = new Random().nextInt(((height-40)/15));
         this.y *= 15;
-        System.out.println("x = " + this.x + ", y = " + this.y);
     }
 
     public int getY() {
@@ -51,12 +46,9 @@ public class Bonus {
     }
 
     public static void ifEaten(char x) {
-        System.out.println("B: " + b.getX() + " " + b.getY());
         for (int i = 0; i < snake.size(); i++) {
 
-            System.out.println("S: " + snake.get(0).getX() + " " + snake.get(0).getY());
             if(b.getX()==(snake.get(0).getX()) && b.getY()==(snake.get(0).getY())) {
-                System.out.println("yes");
                 b.setEaten();
                 MainFrame.frame.invalidate();
                 MainFrame.frame.validate();
