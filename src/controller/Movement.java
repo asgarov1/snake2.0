@@ -56,12 +56,12 @@ public class Movement {
 
     }
 
-    protected int getX() {
+    public int getX() {
         return x;
 
     }
 
-    protected int getY() {
+    public int getY() {
         return y;
     }
 

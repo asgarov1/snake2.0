@@ -5,7 +5,7 @@ import java.util.TimerTask;
 public class MoverTimer extends TimerTask {
     @Override
     public void run() {
-        //Field.ifEaten(Field.lastKeyTyped);
+        Bonus.ifEaten(Field.lastKeyTyped);
         switch (Field.lastKeyTyped) {
             case 'w':
                 for (int i = Field.snake.size() - 1; i > 0; i--) {

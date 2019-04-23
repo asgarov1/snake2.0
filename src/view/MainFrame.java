@@ -1,7 +1,6 @@
 package view;
 
 import controller.Field;
-import model.Bonus;
 
 import javax.swing.*;
 import java.awt.*;
