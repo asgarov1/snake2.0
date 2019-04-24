@@ -9,7 +9,6 @@ public class Main {
     //BUGS
     //2 lives instead of 3?
     //When eating itself - timer jump
-    //Bonus update lag
 
     public static Timer timer = new Timer(true);
 
