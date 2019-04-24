@@ -8,7 +8,7 @@ import java.util.Timer;
 public class Main {
     //BUGS
     //When eating itself - timer jump
-    //Make it really impossible to move back
+    //There is a layer between walls where snake can move - update the borders
 
     public static Timer timer = new Timer(true);
 

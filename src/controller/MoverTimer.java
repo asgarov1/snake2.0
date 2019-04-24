@@ -3,6 +3,8 @@ package controller;
 import java.util.TimerTask;
 
 public class MoverTimer extends TimerTask {
+    public static char lastMovement = Field.lastKeyTyped;
+
     @Override
     public void run() {
         Bonus.ifEaten(Field.lastKeyTyped);
@@ -17,6 +19,7 @@ public class MoverTimer extends TimerTask {
                     Field.snake.get(i).setY(Field.snake.get(i - 1).getY());
                 }
                 Field.snake.get(0).moveUp(Field.canvas.getHeight());
+                lastMovement='w';
                 break;
             case 's':
                 for (int i = Field.snake.size() - 1; i > 0; i--) {
@@ -24,6 +27,7 @@ public class MoverTimer extends TimerTask {
                     Field.snake.get(i).setY(Field.snake.get(i - 1).getY());
                 }
                 Field.snake.get(0).moveDown(Field.canvas.getHeight());
+                lastMovement='s';
                 break;
             case 'a':
                 for (int i = Field.snake.size() - 1; i > 0; i--) {
@@ -31,6 +35,7 @@ public class MoverTimer extends TimerTask {
                     Field.snake.get(i).setY(Field.snake.get(i - 1).getY());
                 }
                 Field.snake.get(0).moveLeft(Field.canvas.getWidth());
+                lastMovement='a';
                 break;
             case 'd':
                 for (int i = Field.snake.size() - 1; i > 0; i--) {
@@ -38,6 +43,7 @@ public class MoverTimer extends TimerTask {
                     Field.snake.get(i).setY(Field.snake.get(i - 1).getY());
                 }
                 Field.snake.get(0).moveRight(Field.canvas.getWidth());
+                lastMovement='d';
                 break;
             default:
         }

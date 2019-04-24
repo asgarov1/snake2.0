@@ -34,13 +34,12 @@ public class Field extends Canvas {
 
     public static void drawCanvas(){
         String message = "Snake can't move backwards";
-
         canvas.addKeyListener(new KeyListener() {
         @Override
         public void keyTyped(KeyEvent e) {
             switch (e.getKeyChar()) {
                 case 'w': {
-                    if (lastKeyTyped != 's') {
+                    if (MoverTimer.lastMovement != 's') {
                         Label.getCenterLabel().setText("");
                         lastKeyTyped = 'w';
                     } else {
@@ -49,7 +48,7 @@ public class Field extends Canvas {
                     break;
                 }
                 case 's': {
-                    if (lastKeyTyped != 'w') {
+                    if (MoverTimer.lastMovement != 'w') {
                         Label.getCenterLabel().setText("");
                         lastKeyTyped = 's';
                     } else {
@@ -58,7 +57,7 @@ public class Field extends Canvas {
                     break;
                 }
                 case 'a': {
-                    if (lastKeyTyped != 'd') {
+                    if (MoverTimer.lastMovement != 'd') {
                         Label.getCenterLabel().setText("");
                         lastKeyTyped = 'a';
                     } else {
@@ -67,7 +66,7 @@ public class Field extends Canvas {
                     break;
                 }
                 case 'd': {
-                    if (lastKeyTyped != 'a') {
+                    if (MoverTimer.lastMovement != 'a') {
                         Label.getCenterLabel().setText("");
                         lastKeyTyped = 'd';
                     } else {
@@ -151,9 +150,6 @@ public class Field extends Canvas {
                 } catch (InterruptedException exc) {
                     System.out.println("Interrupted exception" + exc);
                     Thread.currentThread().interrupt();
-                } catch (ArrayIndexOutOfBoundsException ex) {
-                    System.out.println("No such child found exception");
-
                 }
             }
         }
