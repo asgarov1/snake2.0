@@ -15,6 +15,7 @@ public class Field extends Canvas {
         public static ArrayList<Movement> snake = new ArrayList<>();
         public static char lastKeyTyped='d';
         private static byte lives = 3;
+        private static byte indexOfLivesIcon = 1;
 
 
     public Field(int x, int y) {
@@ -117,7 +118,7 @@ public class Field extends Canvas {
     }
 
     public static boolean ifLost() {
-        for (int i = 1; i < snake.size() ; i++) {
+        for (int i = 1; i < snake.size(); i++) {
             if(snake.get(0).getX() == snake.get(i).getX() && snake.get(0).getY() == snake.get(i).getY()) {
                 try{
                     if (lives == 1) {
@@ -130,7 +131,7 @@ public class Field extends Canvas {
                         paintHead(canvas.getGraphics(), "black");
                         Thread.sleep(400);
                         paintHead(canvas.getGraphics(), "red");
-                        JOptionPane.showMessageDialog(MainFrame.frame, "Your snake ate itself :(\nYour score was " + Label.getScore(), "Game Over", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(Label.class.getResource("heart.png")));
+                        JOptionPane.showMessageDialog(MainFrame.frame, "Your snake ate itself :(\nYour score was " + Label.getScore(), "Game Over", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(Label.class.getResource("Snake40.png")));
                         System.exit(0);
                     } else {
                         paintHead(canvas.getGraphics(), "red");
@@ -140,24 +141,17 @@ public class Field extends Canvas {
                         paintHead(canvas.getGraphics(), "red");
                         Thread.sleep(400);
                         paintHead(canvas.getGraphics(), "black");
-                        Spanel.getLivesPanel().remove(3-lives);
+                        Spanel.getLivesPanel().getComponent(indexOfLivesIcon++).setVisible(false);
                         lives--;
                     }
                     MainFrame.frame.update(MainFrame.frame.getGraphics());
                     break;
-
                 } catch(InterruptedException exc){
                     System.out.println("Interrupted exception" + exc);
                     Thread.currentThread().interrupt();
                 }
-
             }
         }
-
         return false;
     }
-
-
-
-
 }

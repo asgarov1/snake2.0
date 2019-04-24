@@ -14,16 +14,9 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-
         new MainFrame();
 
         MoverTimer moverTimer = new MoverTimer();
         timer.scheduleAtFixedRate(moverTimer, 0,200);
-
-
-    }
-
-    public static Timer getTimer() {
-        return timer;
     }
 }
