@@ -7,8 +7,8 @@ import java.util.Timer;
 
 public class Main {
     //BUGS
-    //2 lives instead of 3?
     //When eating itself - timer jump
+    //Make it really impossible to move back
 
     public static Timer timer = new Timer(true);
 

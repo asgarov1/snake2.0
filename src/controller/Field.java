@@ -28,6 +28,8 @@ public class Field extends Canvas {
         snake.add(new Movement());
         snake.add(new Movement(snake.get(snake.size()-1).getX()-15, snake.get(snake.size()-1).getY()));
         snake.add(new Movement(snake.get(snake.size()-1).getX()-15, snake.get(snake.size()-1).getY()));
+        snake.add(new Movement(snake.get(snake.size()-1).getX()-15, snake.get(snake.size()-1).getY()));
+        snake.add(new Movement(snake.get(snake.size()-1).getX()-15, snake.get(snake.size()-1).getY()));
     }
 
     public static void drawCanvas(){
@@ -119,8 +121,8 @@ public class Field extends Canvas {
 
     public static boolean ifLost() {
         for (int i = 1; i < snake.size(); i++) {
-            if(snake.get(0).getX() == snake.get(i).getX() && snake.get(0).getY() == snake.get(i).getY()) {
-                try{
+            if (snake.get(0).getX() == snake.get(i).getX() && snake.get(0).getY() == snake.get(i).getY()) {
+                try {
                     if (lives == 1) {
                         paintHead(canvas.getGraphics(), "red");
                         Thread.sleep(400);
@@ -133,25 +135,33 @@ public class Field extends Canvas {
                         paintHead(canvas.getGraphics(), "red");
                         JOptionPane.showMessageDialog(MainFrame.frame, "Your snake ate itself :(\nYour score was " + Label.getScore(), "Game Over", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(Label.class.getResource("Snake40.png")));
                         System.exit(0);
-                    } else {
-                        paintHead(canvas.getGraphics(), "red");
-                        Thread.sleep(400);
-                        paintHead(canvas.getGraphics(), "black");
-                        Thread.sleep(400);
-                        paintHead(canvas.getGraphics(), "red");
-                        Thread.sleep(400);
-                        paintHead(canvas.getGraphics(), "black");
-                        Spanel.getLivesPanel().getComponent(indexOfLivesIcon++).setVisible(false);
-                        lives--;
                     }
-                    MainFrame.frame.update(MainFrame.frame.getGraphics());
+
+                    paintHead(canvas.getGraphics(), "red");
+                    Thread.sleep(400);
+                    paintHead(canvas.getGraphics(), "black");
+                    Thread.sleep(400);
+                    paintHead(canvas.getGraphics(), "red");
+                    Thread.sleep(400);
+                    paintHead(canvas.getGraphics(), "black");
+                    Spanel.getLivesPanel().getComponent(indexOfLivesIcon++).setVisible(false);
+                    lives--;
+                    frameUpdate();
                     break;
-                } catch(InterruptedException exc){
+                } catch (InterruptedException exc) {
                     System.out.println("Interrupted exception" + exc);
                     Thread.currentThread().interrupt();
+                } catch (ArrayIndexOutOfBoundsException ex) {
+                    System.out.println("No such child found exception");
+
                 }
             }
         }
         return false;
+    }
+
+    private static void frameUpdate() {
+        MainFrame.frame.getContentPane().invalidate();
+        MainFrame.frame.getContentPane().validate();
     }
 }
