@@ -6,6 +6,11 @@ public class MoverTimer extends TimerTask {
     @Override
     public void run() {
         Bonus.ifEaten(Field.lastKeyTyped);
+        if(Bonus.getB().isEaten()) {
+            Bonus.setB(new Bonus(Field.canvas.getWidth(), Field.canvas.getHeight()));
+
+        }
+        Field.canvas.update(Field.canvas.getGraphics());
         switch (Field.lastKeyTyped) {
             case 'w':
                 for (int i = Field.snake.size() - 1; i > 0; i--) {
@@ -41,6 +46,6 @@ public class MoverTimer extends TimerTask {
                 break;
             default:
         }
-        //Field.ifLost();
+        Field.ifLost();
     }
 }
