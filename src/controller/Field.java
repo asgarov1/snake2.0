@@ -57,7 +57,7 @@ public class Field extends Canvas {
                     break;
                 }
                 case 'a': {
-                    if (MoverTimer.lastMovement != 'd') {
+                    if (MoverTimer.lastMovement != 'd' && snake.get(0).getY()!=420) { //!=420 is necessary in order to prevent the snake to stay inbetween the walls
                         Label.getCenterLabel().setText("");
                         lastKeyTyped = 'a';
                     } else {
@@ -66,7 +66,7 @@ public class Field extends Canvas {
                     break;
                 }
                 case 'd': {
-                    if (MoverTimer.lastMovement != 'a') {
+                    if (MoverTimer.lastMovement != 'a' && snake.get(0).getY()!=420) {
                         Label.getCenterLabel().setText("");
                         lastKeyTyped = 'd';
                     } else {

@@ -7,6 +7,7 @@ public class MoverTimer extends TimerTask {
 
     @Override
     public void run() {
+        System.out.println(Field.snake.get(0).getX() + " " + Field.snake.get(0).getY());
         Bonus.ifEaten(Field.lastKeyTyped);
         if(Bonus.getB().isEaten()) {
             Bonus.setB(new Bonus(Field.canvas.getWidth(), Field.canvas.getHeight()));
@@ -30,20 +31,20 @@ public class MoverTimer extends TimerTask {
                 lastMovement='s';
                 break;
             case 'a':
-                for (int i = Field.snake.size() - 1; i > 0; i--) {
-                    Field.snake.get(i).setX(Field.snake.get(i - 1).getX());
-                    Field.snake.get(i).setY(Field.snake.get(i - 1).getY());
-                }
-                Field.snake.get(0).moveLeft(Field.canvas.getWidth());
-                lastMovement='a';
+                    for (int i = Field.snake.size() - 1; i > 0; i--) {
+                        Field.snake.get(i).setX(Field.snake.get(i - 1).getX());
+                        Field.snake.get(i).setY(Field.snake.get(i - 1).getY());
+                    }
+                    Field.snake.get(0).moveLeft(Field.canvas.getWidth());
+                    lastMovement = 'a';
                 break;
             case 'd':
-                for (int i = Field.snake.size() - 1; i > 0; i--) {
-                    Field.snake.get(i).setX(Field.snake.get(i - 1).getX());
-                    Field.snake.get(i).setY(Field.snake.get(i - 1).getY());
-                }
-                Field.snake.get(0).moveRight(Field.canvas.getWidth());
-                lastMovement='d';
+                    for (int i = Field.snake.size() - 1; i > 0; i--) {
+                        Field.snake.get(i).setX(Field.snake.get(i - 1).getX());
+                        Field.snake.get(i).setY(Field.snake.get(i - 1).getY());
+                    }
+                    Field.snake.get(0).moveRight(Field.canvas.getWidth());
+                    lastMovement = 'd';
                 break;
             default:
         }

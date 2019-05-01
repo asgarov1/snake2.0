@@ -32,28 +32,26 @@ public class Movement {
     public void moveUp(int max){
         this.y-=15;
 
-        if(y<-15)
+        if(y<=-15 || y == 420)
             this.y=max;
     }
     public void moveDown(int max){
-        if(y>=max)
+        if(y>=420)
             this.y=0;
         else
             this.y+=15;
     }
     public void moveLeft(int max){
-        if(x<=0)
-            this.x=max-width;
-        else
-            this.x-=15;
-
+            if (x <= 0)
+                this.x = max - width;
+            else
+                this.x -= 15;
     }
     public void moveRight(int max){
-        if(x>=max-width)
-            this.x=0;
-        else
-            this.x+=15;
-
+            if (x >= max - width)
+                this.x = 0;
+            else
+                this.x += 15;
     }
 
     public int getX() {
