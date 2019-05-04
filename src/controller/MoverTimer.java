@@ -3,7 +3,7 @@ package controller;
 import java.util.TimerTask;
 
 public class MoverTimer extends TimerTask {
-    public static char lastMovement = Field.lastKeyTyped;
+    static char lastMovement = Field.lastKeyTyped;
 
     @Override
     public void run() {

@@ -49,7 +49,7 @@ public class MainFrame {
         field.drawCanvas();
     }
 
-    public void updateFrame() {
+    private void updateFrame() {
         MainFrame.frame.invalidate();
         MainFrame.frame.validate();
     }

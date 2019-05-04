@@ -23,7 +23,7 @@ public class Label extends JLabel {
         return score;
     }
 
-    public static JLabel getScoreLabel() {
+    static JLabel getScoreLabel() {
         return scoreLabel;
     }
 

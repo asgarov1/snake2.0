@@ -14,7 +14,7 @@ public class Spanel extends JPanel {
         livesPanel.add(new JLabel(new ImageIcon(MainFrame.class.getResource("heart.png"))), BorderLayout.NORTH);
     }
 
-    public static JPanel getTopPanel() {
+    static JPanel getTopPanel() {
         return topPanel;
     }
 

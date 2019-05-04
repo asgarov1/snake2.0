@@ -4,49 +4,49 @@ import view.Label;
 import java.util.Random;
 import static controller.Snake.snake;
 
-public class Bonus {
+class Bonus {
     private int x;
     private int y;
     private boolean isEaten;
     private static Bonus b = new Bonus(600, 466);
 
-    public Bonus(int width, int height) {
+    Bonus(int width, int height) {
         generateRandomPos(width, height);
         this.isEaten = false;
     }
 
-    public void generateRandomPos(int width, int height) {
+    private void generateRandomPos(int width, int height) {
         this.x = new Random().nextInt(((width - 40) / 15));
         this.x *= 15;
         this.y = new Random().nextInt(((height - 40) / 15));
         this.y *= 15;
     }
 
-    public int getY() {
+    int getY() {
         return y;
     }
 
-    public int getX() {
+    int getX() {
         return x;
     }
 
-    public boolean isEaten() {
+    boolean isEaten() {
         return isEaten;
     }
 
-    public void setEaten() {
+    private void setEaten() {
         isEaten = true;
     }
 
-    public static Bonus getB() {
+    static Bonus getB() {
         return b;
     }
 
-    public static void setB(Bonus b) {
+    static void setB(Bonus b) {
         Bonus.b = b;
     }
 
-    public static void ifEaten(char x) {
+    static void ifEaten(char x) {
         if (b.getX() == (snake.get(0).getX()) && b.getY() == (snake.get(0).getY())) {
             b.setEaten();
             Field.canvas.update(Field.canvas.getGraphics());
