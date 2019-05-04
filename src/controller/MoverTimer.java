@@ -7,8 +7,6 @@ public class MoverTimer extends TimerTask {
 
     @Override
     public void run() {
-                        System.out.println(Snake.snake.get(0).getX() + " " + Snake.snake.get(0).getY());
-
         Bonus.ifEaten(Field.lastKeyTyped);
         if(Bonus.getB().isEaten()) {
             Bonus.setB(new Bonus(Field.canvas.getWidth(), Field.canvas.getHeight()));
