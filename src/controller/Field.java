@@ -7,12 +7,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
+
+import static controller.Snake.snake;
 
 public class Field extends Canvas {
         private static int canvasWidth = 600, canvasHeight=466;
         protected static Field canvas = new Field(canvasWidth,canvasHeight);
-        public static ArrayList<Movement> snake = new ArrayList<>();
         public static char lastKeyTyped='d';
         private static byte lives = 3;
         private static byte indexOfLivesIcon = 1;
@@ -145,6 +145,7 @@ public class Field extends Canvas {
                     paintHead(canvas.getGraphics(), "black");
                     Spanel.getLivesPanel().getComponent(indexOfLivesIcon++).setVisible(false);
                     lives--;
+                    snakePositionUpdate();
                     frameUpdate();
                     break;
                 } catch (InterruptedException exc) {
@@ -154,6 +155,35 @@ public class Field extends Canvas {
             }
         }
         return false;
+    }
+
+    private static void snakePositionUpdate() {
+        switch(MoverTimer.lastMovement) {
+            case 'w': {
+                for (int i = 0; i < snake.size(); i++) {
+                    snake.get(i).setY(snake.get(i).getY()+45);
+                }
+                break;
+            }
+            case 'a': {
+                for (int i = 0; i < snake.size(); i++) {
+                    snake.get(i).setX(snake.get(i).getX()+45);
+                }
+                break;
+            }
+            case 's': {
+                for (int i = 0; i < snake.size(); i++) {
+                    snake.get(i).setY(snake.get(i).getY()-45);
+                }
+                break;
+            }
+            case 'd': {
+                for (int i = 0; i < snake.size(); i++) {
+                    snake.get(i).setX(snake.get(i).getX()-45);
+                }
+                break;
+            }
+        }
     }
 
     private static void frameUpdate() {

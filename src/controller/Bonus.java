@@ -2,7 +2,7 @@ package controller;
 
 import view.Label;
 import java.util.Random;
-import static controller.Field.snake;
+import static controller.Snake.snake;
 
 public class Bonus {
     private int x;
